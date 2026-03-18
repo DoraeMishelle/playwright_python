@@ -1,4 +1,4 @@
-#parameters
+#parameter examples------------------------------------------------------------------------
 # example 1- fxn with no parameter and no return
 def my_func():
     print("Hello")
@@ -31,12 +31,12 @@ def my_func3():
 
 # calling the function but not getting any output
 my_func3()
-# call the function to return the string 'none'
+# to call the function to return the string 'none'
 #print(my_func3())
 
 
 
-#aaaaargs
+#aaaaargs examples - positional, kwargs, arbitrary---------------------------------------------------
 # positional args
 def sum_func(a,b):
     return a+b
@@ -51,7 +51,7 @@ def sum_func2(*numbers):
         total = total + 1
     return total
 
-# each arg in the fxn call will be added to 0 in one loop and will loop through all args one at a time
+# each arg in the fxn call will be added to 0 in loops and will loop through all args one at a time
 print(sum_func2(10, 15))
 
 
@@ -61,3 +61,58 @@ def my_func4(i,j):
 
 my_func4(5,10) # positional args- same amount of args in same exact order
 # my_func4(j=5,i=10) # kwargs- same amount of args in any order
+
+
+#default values in positional arguments
+def my_func5(i=10,j=15):
+    print(i,j)
+
+#passing a value that will replace the default value
+my_func5(100)
+#passing no values to return the default positional values
+my_func5()
+
+
+# mixing positional and kwargs
+def my_func6(a,b,c):
+    print(a,b,c)
+
+my_func6(10,20,30) #by default this is positional args
+my_func6(a=10,b=20,c=30)  #kwargs
+my_func6(c=10,b=20,a=30) #kwargs
+my_func6(10,20,c=30)
+#my_func6(10,b=20,30) # syntax error because positional args should come before kwargs
+#my_func6(a=10,30,b=20)  #type error (logic error)
+
+
+
+# scope of variables -------------------------------------------------------------------
+
+a = 100     #global var
+
+def my_func():
+    print(a)    #local var
+
+my_func()
+
+# modify the global variable locally
+def my_func2():
+    global a
+    a=200
+    print(a)
+
+my_func2()
+print(a)
+
+
+#declare global var inside fxn
+def my_func3():
+    global x
+    x=100
+    print(x)
+
+#call fxn
+my_func3()
+#now access x outside function
+print(x)
+
