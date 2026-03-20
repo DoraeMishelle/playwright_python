@@ -18,6 +18,7 @@ def test_my_first_test(setup):
     print("this is my first test")
     print("Browser is: ",setup)
 
+
 def test_my_second_test():
     print("this is my second test")
 
